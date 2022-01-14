@@ -10,7 +10,7 @@ import javax.validation.Valid;
 
 @Controller
 @Log4j2
-public class BilgeadamCvValidationDto {
+public class BilgeadamCvValidationContoller {
 
     //root page
     @GetMapping("/")
@@ -23,13 +23,13 @@ public class BilgeadamCvValidationDto {
     //Get method
     @GetMapping("/form")
     public String getCvFormValidation(Model model){
-    model.addAttribute("cv_key",new BilgeadamCvValidationDto());
+    model.addAttribute("cv_key",new BilgeadamCvValidationContoller());
         return "formvalidation";
     }
 
     @GetMapping("/form")
     //Validemiz Modaya uyuyor 1000Dolar
-    public String postCvFormValidation(@Valid @ModelAttribute("cv_key") BilgeadamCvValidationDto dto, BindingResult bindingResult){
+    public String postCvFormValidation(@Valid @ModelAttribute("cv_key") BilgeadamCvValidationContoller dto, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             log.error("Hata var....");
             return "formvalidation";
