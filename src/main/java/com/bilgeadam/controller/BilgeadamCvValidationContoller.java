@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
 
@@ -21,14 +22,15 @@ public class BilgeadamCvValidationContoller {
 
     //Form
     //Get method
-    @GetMapping("/form")
+    @GetMapping("/formurl")
     public String getCvFormValidation(Model model){
     model.addAttribute("cv_key",new BilgeadamCvValidationContoller());
         return "formvalidation";
     }
 
-    @GetMapping("/form")
+    //Post Method
     //Validemiz Modaya uyuyor 1000Dolar
+    @PostMapping("/formurl")
     public String postCvFormValidation(@Valid @ModelAttribute("cv_key") BilgeadamCvValidationContoller dto, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             log.error("Hata var....");
