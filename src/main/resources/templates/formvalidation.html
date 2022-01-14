@@ -1,5 +1,7 @@
 <!doctype html>
-<html lang="en">
+<html th:lang="${#locale.language}"  xmlns:th="http://www.thymeleaf.org" >
+<!--<html xmlns:th="http://www.thymeleaf.org"></html>-->
+<!--https://www.dariawan.com/tutorials/spring/spring-boot-thymeleaf-crud-example/-->
 <head>
     <title>Anasayfa</title>
     <!-- Required meta tags -->
@@ -11,6 +13,9 @@
 </head>
 <body style="background-color: #d0dce9">
 
+<!--https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html-->
+
+<!--navbar start-->
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <a class="navbar-brand" href="#">LOGO</a>
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
@@ -41,15 +46,20 @@
         </form>
     </div>
 </nav>
+<!--main finish-->
 
+
+<!--main start-->
 <main style="margin-top:2%;">
     <section>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card bg-dark text-white">
-                        <h4 class="card-title text-center display-3 bg-dark text-success text-uppercase">Form Validation-1</h4>
-                        <p class="card-text text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, quasi.</p>
+                        <h4 class="card-title text-center display-3 bg-dark text-success text-uppercase">Form
+                            Validation-1</h4>
+                        <p class="card-text text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Magni, quasi.</p>
                         <div class="card-body">
                             <form action="">
                                 <div class="container">
@@ -72,7 +82,7 @@
                                     <div class="row">
                                         <div class="col-md-2">Surname</div>
                                         <div class="col-md-10 form-group">
-                                            <input type="text" class="form-control" >
+                                            <input type="text" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -80,7 +90,7 @@
                                     <div class="row">
                                         <div class="col-md-2">Address</div>
                                         <div class="col-md-10 form-group">
-                                            <input type="text" class="form-control" >
+                                            <input type="text" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -113,7 +123,6 @@
                                         <div class="col-md-2">Message</div>
                                         <div class="col-md-10 form-group">
                                             <textarea name="" id="" cols="114" rows="5"></textarea>
-
                                         </div>
                                     </div>
                                 </div>
@@ -143,9 +152,11 @@
         </div>
     </section>
 </main>
+<!--main finish-->
 
+<!--footer start-->
 <footer></footer>
-
+<!--footer finish-->
 
 
 <!-- Optional JavaScript -->
