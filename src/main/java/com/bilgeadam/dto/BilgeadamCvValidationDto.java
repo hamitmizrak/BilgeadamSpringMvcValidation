@@ -15,7 +15,7 @@ import java.sql.Date;
 @Builder
 
 //validation anonation: @NotEmpty, @Size,@Min,Max,@Pattern,@Email
-public class BilgeadamCvValidation {
+public class BilgeadamCvValidationDto {
 
     //object variable
     @NotEmpty(message = "adı boş geçemezsiniz")
