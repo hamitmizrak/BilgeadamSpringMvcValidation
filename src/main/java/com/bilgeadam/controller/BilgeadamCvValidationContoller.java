@@ -1,4 +1,5 @@
 package com.bilgeadam.controller;
+import com.bilgeadam.dto.BilgeadamCvValidationDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,19 +25,22 @@ public class BilgeadamCvValidationContoller {
     //Get method
     @GetMapping("/formurl")
     public String getCvFormValidation(Model model){
-    model.addAttribute("cv_key",new BilgeadamCvValidationContoller());
+    model.addAttribute("cv_key",new BilgeadamCvValidationDto());
         return "formvalidation";
     }
 
     //Post Method
     //Validemiz Modaya uyuyor 1000Dolar
+
     @PostMapping("/formurl")
-    public String postCvFormValidation(@Valid @ModelAttribute("cv_key") BilgeadamCvValidationContoller dto, BindingResult bindingResult){
+    public String postCvFormValidation(@Valid @ModelAttribute("cv_key") BilgeadamCvValidationDto dto, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             log.error("Hata var....");
             return "formvalidation";
         }
-        log.info("Başarılı");
+        log.info("Başarılı: "+dto);
+        log.info("Database kaydedildi !!!");
+        log.info("Dosyaya yazıldı !!!");
         return "success";
     }
 

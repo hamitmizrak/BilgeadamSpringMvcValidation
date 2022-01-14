@@ -1,7 +1,10 @@
+<!--https://www.dariawan.com/tutorials/spring/spring-boot-thymeleaf-crud-example/-->
+<!--https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html-->
+
 <!doctype html>
 <html th:lang="${#locale.language}"  xmlns:th="http://www.thymeleaf.org" >
 <!--<html xmlns:th="http://www.thymeleaf.org"></html>-->
-<!--https://www.dariawan.com/tutorials/spring/spring-boot-thymeleaf-crud-example/-->
+
 <head>
     <title>Anasayfa</title>
     <!-- Required meta tags -->
@@ -12,8 +15,6 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
 </head>
 <body style="background-color: #d0dce9">
-
-<!--https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html-->
 
 <!--navbar start-->
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -48,6 +49,17 @@
 </nav>
 <!--main finish-->
 
+<!--
+userName
+userMiddleName
+userSurname
+userAddress
+userEmailAddress
+userAge
+userPhone
+userMessage
+creationDate
+-->
 
 <!--main start-->
 <main style="margin-top:2%;">
@@ -61,36 +73,45 @@
                         <p class="card-text text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             Magni, quasi.</p>
                         <div class="card-body">
-                            <form action="">
+
+
+                            <!--th:method="" ==>post-->
+                            <!--h:action=""  ==>@GetMapping URL-->
+                            <!--th:object="" ==>Model > KEY -->
+                            <form  th:method="post" th:action="@{/formurl}" th:object="${cv_key}" >
                                 <div class="container">
                                     <div class="row">
-                                        <div class="col-md-2">Name</div>
+                                        <div class="col-md-2">Name:</div>
                                         <div class="col-md-10 form-group">
-                                            <input type="text" class="form-control" autofocus>
+                                                <input th:field="*{userName}" type="text" class="form-control" autofocus >
+                                            <div th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}" > </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="container">
                                     <div class="row">
-                                        <div class="col-md-2">MiddleName</div>
+                                        <div class="col-md-2">MiddleName:</div>
                                         <div class="col-md-10 form-group">
-                                            <input type="text" class="form-control">
+                                            <input th:field="*{userMiddleName}"  type="text" class="form-control">
+                                            <div th:if="${#fields.hasErrors('userMiddleName')}" th:errors="*{userMiddleName}" > </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="container">
                                     <div class="row">
-                                        <div class="col-md-2">Surname</div>
+                                        <div class="col-md-2">Surname:</div>
                                         <div class="col-md-10 form-group">
-                                            <input type="text" class="form-control">
+                                            <input th:field="*{userSurname}" type="text" class="form-control">
+                                            <div th:if="${#fields.hasErrors('userSurname')}" th:errors="*{userSurname}" > </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="container">
                                     <div class="row">
-                                        <div class="col-md-2">Address</div>
+                                        <div class="col-md-2">Address:</div>
                                         <div class="col-md-10 form-group">
-                                            <input type="text" class="form-control">
+                                            <input th:field="*{userAddress}" type="text" class="form-control">
+                                            <div th:if="${#fields.hasErrors('userAddress')}" th:errors="*{userAddress}" > </div>
                                         </div>
                                     </div>
                                 </div>
@@ -98,39 +119,45 @@
                                     <div class="row">
                                         <div class="col-md-2">EmailAddress</div>
                                         <div class="col-md-10 form-group">
-                                            <input type="text" class="form-control">
+                                            <input th:field="*{userEmailAddress}" type="text" class="form-control">
+                                            <div th:if="${#fields.hasErrors('userEmailAddress')}" th:errors="*{userEmailAddress}" > </div>
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="container">
                                     <div class="row">
-                                        <div class="col-md-2">Age</div>
+                                        <div class="col-md-2">Age:</div>
                                         <div class="col-md-10 form-group">
-                                            <input type="text" class="form-control">
+                                            <input  th:field="*{userAge}"  class="form-control">
+                                            <div th:if="${#fields.hasErrors('userAge')}" th:errors="*{userAge}" > </div>
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-md-2">Phone</div>
                                         <div class="col-md-10 form-group">
-                                            <input type="text" class="form-control">
+                                            <input th:field="*{userPhone}" type="text" class="form-control">
+                                            <div th:if="${#fields.hasErrors('userPhone')}" th:errors="*{userPhone}" > </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="container">
                                     <div class="row">
-                                        <div class="col-md-2">Message</div>
+                                        <div class="col-md-2">Message:</div>
                                         <div class="col-md-10 form-group">
-                                            <textarea name="" id="" cols="114" rows="5"></textarea>
+                                            <textarea th:field="*{userMessage}" name="" id="" cols="114" rows="5"></textarea>
+                                            <div th:if="${#fields.hasErrors('userMessage')}" th:errors="*{userMessage}" > </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="container">
                                     <div class="row">
-                                        <div class="col-md-2">creationDate</div>
+                                        <div class="col-md-2">creationDate:</div>
                                         <div class="col-md-10 form-group">
-                                            <input disabled type="text" class="form-control">
+                                            <input th:field="*{creationDate}" disabled type="text" class="form-control">
                                         </div>
                                     </div>
                                 </div>
