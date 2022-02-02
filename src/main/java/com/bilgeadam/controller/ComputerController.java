@@ -2,7 +2,7 @@ package com.bilgeadam.controller;
 
 import com.bilgeadam.entity.ComputerEntity;
 import com.bilgeadam.repository.impl.ComputerMyRepositoryImpl;
-import com.bilgeadam.repository.ComputerRepository;
+import com.bilgeadam.repository.IComputerRepository;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,7 +19,7 @@ public class ComputerController {
 
     //cdi =Inject
     @Autowired
-    ComputerRepository computerRepository;
+    IComputerRepository IComputerRepository;
 
     @Autowired
     ComputerMyRepositoryImpl computerMyRepository;
@@ -32,7 +32,7 @@ public class ComputerController {
         ComputerEntity computerEntity=null;
         for(int i=1; i<=10; i++){
              computerEntity = ComputerEntity.builder().computerId(0L).computerName("GL75").computerPrice(i*100).computerTrade("msi").build();
-            computerRepository.save(computerEntity);
+            IComputerRepository.save(computerEntity);
         }
 
         return "Ekleme Başarılı " + computerEntity.getComputerId();
@@ -47,7 +47,7 @@ public class ComputerController {
             @RequestParam(name = "trade") String trade
     ) {
         ComputerEntity computerEntity = ComputerEntity.builder().computerId(0L).computerName(name).computerTrade(trade).build();
-        computerRepository.save(computerEntity);
+        IComputerRepository.save(computerEntity);
         return "Ekleme Başarılı " + computerEntity.getComputerId();
     }
 
@@ -57,7 +57,7 @@ public class ComputerController {
     @ResponseBody
     public String getComputerFind(@PathVariable(name = "id") Long idim) {
         //java 8 null pointer exception kurtarmak için
-        Optional<ComputerEntity> optional = computerRepository.findById(idim);
+        Optional<ComputerEntity> optional = IComputerRepository.findById(idim);
         //kayıt varsa
         if (optional.isPresent()) {
             ComputerEntity computerEntity1 = optional.get();
@@ -74,11 +74,11 @@ public class ComputerController {
     @ResponseBody
     public String getComputerRemove(@PathVariable(name = "id") Long idim) {
         //java 8 null pointer exception kurtarmak için
-        Optional<ComputerEntity> optional = computerRepository.findById(idim);
+        Optional<ComputerEntity> optional = IComputerRepository.findById(idim);
         //kayıt varsa
         if (optional.isPresent()) {
             ComputerEntity computerEntity1 = optional.get();
-            computerRepository.deleteById(idim);
+            IComputerRepository.deleteById(idim);
             return "silme Başarılı " + computerEntity1.getComputerId() + " " + computerEntity1.getComputerName() + " " + computerEntity1.getComputerTrade() + " " + computerEntity1.getDate();
         } else {
             return "silinemedi " + idim;
@@ -98,12 +98,12 @@ public class ComputerController {
 
     ) {
 
-        Optional<ComputerEntity> optional = computerRepository.findById(idim);
+        Optional<ComputerEntity> optional = IComputerRepository.findById(idim);
         if (optional.isPresent()) {
             ComputerEntity computerEntity1 = optional.get();
             computerEntity1.setComputerName(name);
             computerEntity1.setComputerTrade(trade);
-            computerRepository.save(computerEntity1);
+            IComputerRepository.save(computerEntity1);
             return "Güncelleme Başarılı ";
         } else {
             return "Güncelleme Başarısız" + idim;
@@ -117,7 +117,7 @@ public class ComputerController {
     @ResponseBody
     public String getComputerSelectAll() {
         //iterable: birden fazla collection olan objedir.
-        Iterable<ComputerEntity> iterableList = computerRepository.findAll();
+        Iterable<ComputerEntity> iterableList = IComputerRepository.findAll();
         for (ComputerEntity temp : iterableList) {
             log.info(temp);
         }
@@ -132,7 +132,7 @@ public class ComputerController {
             @PathVariable(name = "computer_name") String computerNamem
     ) {
         //iterable: birden fazla collection olan objedir.
-        Iterable<ComputerEntity> iterableList = computerRepository.findComputerEntitiesByComputerName(computerNamem);
+        Iterable<ComputerEntity> iterableList = IComputerRepository.findComputerEntitiesByComputerName(computerNamem);
         for (ComputerEntity temp : iterableList) {
             log.info(temp);
         }
@@ -150,7 +150,7 @@ public class ComputerController {
         ComputerEntity computerEntity=null;
         for(int i=1; i<=10; i++){
             computerEntity = ComputerEntity.builder().computerId(0L).computerName("GL75").computerPrice(i*100).computerTrade("msi").build();
-            computerRepository.save(computerEntity);
+            IComputerRepository.save(computerEntity);
         }
 
         return "Ekleme Başarılı " + computerEntity.getComputerId();
