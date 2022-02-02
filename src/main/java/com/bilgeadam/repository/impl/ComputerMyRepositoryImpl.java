@@ -1,6 +1,7 @@
-package com.bilgeadam.repository;
+package com.bilgeadam.repository.impl;
 
 import com.bilgeadam.entity.ComputerEntity;
+import com.bilgeadam.repository.IMyRepository;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -9,7 +10,7 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository
-public class ComputerMyRepositoryImpl implements IMyRepository{
+public class ComputerMyRepositoryImpl implements IMyRepository {
 
     //entityManager
     @PersistenceContext

@@ -1,7 +1,7 @@
 package com.bilgeadam.controller;
 
 import com.bilgeadam.entity.ComputerEntity;
-import com.bilgeadam.repository.ComputerMyRepositoryImpl;
+import com.bilgeadam.repository.impl.ComputerMyRepositoryImpl;
 import com.bilgeadam.repository.ComputerRepository;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -10,7 +10,7 @@ import java.util.List;
 
 //Crud: create read update delete
 //computerId datatype ==> Long
-public interface ComputerRepository extends CrudRepository <ComputerEntity,Long>,IMyRepository{
+public interface ComputerRepository extends CrudRepository <ComputerEntity,Long>{
     //yeni sorgu icin lazım olacak
     //Not: Entity attribute aynı olmak zorunda ==> computerName
     //1.YOL
