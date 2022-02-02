@@ -15,6 +15,7 @@ import javax.validation.Valid;
 public class BilgeadamCvValidationContoller {
 
     //root page
+    //http://localhost:8080/formurl
     @GetMapping("/")
     public String getRoot(Model model){
         model.addAttribute("cv_key","Ana Sayfaya Hoşgeldiniz");
@@ -23,6 +24,7 @@ public class BilgeadamCvValidationContoller {
 
     //Form
     //Get method
+    //http://localhost:8080/formurl
     @GetMapping("/formurl")
     public String getCvFormValidation(Model model){
     model.addAttribute("cv_key",new BilgeadamCvValidationDto());
@@ -31,7 +33,7 @@ public class BilgeadamCvValidationContoller {
 
     //Post Method
     //Validemiz Modaya uyuyor 1000Dolar
-
+    //http://localhost:8080/formurl
     @PostMapping("/formurl")
     public String postCvFormValidation(@Valid @ModelAttribute("cv_key") BilgeadamCvValidationDto dto, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
@@ -43,6 +45,4 @@ public class BilgeadamCvValidationContoller {
         log.info("Dosyaya yazıldı !!!");
         return "success";
     }
-
-
 }

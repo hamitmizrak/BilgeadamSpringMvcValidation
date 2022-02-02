@@ -17,17 +17,6 @@ import java.sql.Date;
 //validation anonation: @NotEmpty, @Size,@Min,Max,@Pattern,@Email
 public class BilgeadamCvValidationDto {
 
-//    userName;
-//    userMiddleName;
-//    userSurname;
-//    userAddress;
-//    userEmailAddress;
-//    userAge;
-//    userPhone;
-//    userMessage;
-//    creationDate;
-
-    //object variable
     @NotEmpty(message = "adı boş geçemezsiniz")
     private String userName;
 
@@ -43,7 +32,6 @@ public class BilgeadamCvValidationDto {
     @Email(message = "uygun olmayan formatta mail yazdınız")
     private String userEmailAddress;
 
-
     @Min(value = 18,message = "18 yaşından küçükler başvuramaz")
     @Max(value = 45,message = "45 yaşından büyükler başvuramaz")
     private int userAge;
@@ -57,9 +45,4 @@ public class BilgeadamCvValidationDto {
     private String userMessage;
 
     private Date creationDate=new Date(System.currentTimeMillis());
-
-
-
-
-
 }
