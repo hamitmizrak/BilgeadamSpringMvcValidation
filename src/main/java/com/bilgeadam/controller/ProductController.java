@@ -1,6 +1,8 @@
 package com.bilgeadam.controller;
 
 import com.bilgeadam.dto.ProductDto;
+import lombok.extern.log4j.Log4j2;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -11,8 +13,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
 import javax.websocket.server.PathParam;
+import java.lang.reflect.Type;
+import java.util.List;
 
 @Controller
+@Log4j2
 public class ProductController {
     private final static String URL = "http://localhost:8090/rest/pathvariablelist/";
 
@@ -45,9 +50,8 @@ public class ProductController {
         return "veriler44:"+ productDto;
     }
 
-
-    // http://localhost:8090/client/controller/pathvariable/productdto/denemeurun
     //getForObject
+    // http://localhost:8090/client/controller/pathvariable/productdto/denemeurun
     @GetMapping("/client/controller/pathvariable/productdto/{urun_adi}")
     @ResponseBody
     public ProductDto getProductServicesObject(@PathVariable("urun_adi") String urunAdim44) {
@@ -59,6 +63,7 @@ public class ProductController {
     }
 
 
+    //ResponseEntity
     // http://localhost:8090/client/controller/pathvariable/productdto/special/denemeurun66
     @GetMapping("/client/controller/pathvariable/productdto/special/{urun_adi}")
     @ResponseBody
@@ -70,5 +75,23 @@ public class ProductController {
         ResponseEntity<ProductDto> responseEntity= restTemplate.exchange(URL, HttpMethod.GET, HttpEntity.EMPTY,ProductDto.class);
         ProductDto productDto2=responseEntity.getBody();
         return productDto2;
+    }
+
+
+    //ResponseEntity ==> List
+    // http://localhost:8090/client/controller/pathvariable/productdto/specialList/denemeurun66
+    @GetMapping("/client/controller/pathvariable/productdto/specialList/{urun_adi}")
+    @ResponseBody
+    public  List<ProductDto> getProductServicesSupLevelList(@PathVariable("urun_adi") String urunAdim44) {
+        String URL = "http://localhost:8090/rest/pathvariablelist/"+urunAdim44;
+        RestTemplate restTemplate=new RestTemplate();
+        //anonymous class
+        ResponseEntity<List<ProductDto>> responseEntity= restTemplate.exchange(URL, HttpMethod.GET, HttpEntity.EMPTY, new ParameterizedTypeReference<List<ProductDto>>() {
+        });
+        List<ProductDto> productDtoList=responseEntity.getBody();
+        for(ProductDto temp: productDtoList){
+            System.out.println(temp);
+        }
+        return productDtoList;   // ""+productDtoList.size();
     }
 }
