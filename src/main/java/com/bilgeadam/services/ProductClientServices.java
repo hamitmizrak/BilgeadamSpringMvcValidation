@@ -6,15 +6,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.websocket.server.PathParam;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.springframework.http.MediaType.*;
-
 @RestController
-public class ProductServices {
+public class ProductClientServices {
 
     // localhost:8090/rest/manueljson
     @GetMapping("/rest/manueljson")

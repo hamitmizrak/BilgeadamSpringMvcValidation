@@ -12,15 +12,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
-import javax.websocket.server.PathParam;
-import java.lang.reflect.Type;
 import java.util.List;
 
 @Controller
 @Log4j2
-public class ProductController {
-    private final static String URL = "http://localhost:8090/rest/pathvariablelist/";
-
+public class ProductClientController {
 
     ////CLIENT
     // http://localhost:8090/client/controller/string
