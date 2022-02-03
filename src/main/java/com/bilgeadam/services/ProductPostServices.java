@@ -19,4 +19,13 @@ public class ProductPostServices {
     }
 
 
+    /////POST Dto
+    // http://localhost:8090/post/object
+    @PostMapping("/post/object")
+    public ProductDto postProductObject(@RequestBody ProductDto productDto) {
+        log.info(productDto);
+        return productDto;
+    }
+
+
 }
