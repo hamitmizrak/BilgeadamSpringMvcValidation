@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ThymeleafDto {
 
-    private long thyId;
+    private Long thyId;
     private String tyhName;
     private double thyPrice;
 

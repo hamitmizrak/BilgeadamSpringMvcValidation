@@ -9,14 +9,22 @@
 
 </head>
 <body>
+sonuc:  <b><label th:text="${message}"></label></b>
 
-private long thyId;
-private String tyhName;
-private double thyPrice;
-<form action="#" method="post"  th:object="${thymeleaf_key}"  th:action="@{/thymeleaf/deneme/{id}(id=${thymeleaf_key.thyId})}" >
+<form action="#" method="post"  th:object="${thymeleaf_key}"  th:action="@{/thymeleaf/{id}(id=${thymeleaf_key.thyId})}" >
+
+    <ul>
+        <li th:each="error:${#fields.errors('all')}"  th:text="${error}"></li>
+    </ul>
+
     <input  type="text" id="thyId" disabled="disabled" th:field="*{thyId}"/><br/>
+
     <input type="text" id="tyhName" th:field="*{tyhName}"/><br/>
+    <span th:if="${#fields.hasErrors('tyhName')}"  th:errors="*{tyhName}"></span>
+
     <input type="text" id="thyPrice" th:field="*{thyPrice}"/><br/>
+    <span th:if="${#fields.hasErrors('thyPrice')}"  th:errors="*{thyPrice}"></span>
+
     <input type="submit" /><br/>
 </form>
 
