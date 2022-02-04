@@ -3,27 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script th:src="@{/js/index.js}"></script>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script th:src="@{/js/index1.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/style1.css}">
     <link>
 
 </head>
 <body>
 sonuc:  <b><label th:text="${message}"></label></b>
+<!-- productId; -->
+<!-- productName; -->
+<!-- productTrade; -->
+<!-- productPrice; -->
 
-<form action="#" method="post"  th:object="${thymeleaf_key}"  th:action="@{/thymeleaf/{id}(id=${thymeleaf_key.thyId})}" >
+<form action="#" method="post"  th:object="${key}"  th:action="@{/thymeleaf/{id}(id=${key.productId})}" >
 
     <ul>
         <li th:each="error:${#fields.errors('all')}"  th:text="${error}"></li>
     </ul>
-
-    <input  type="text" id="thyId" disabled="disabled" th:field="*{thyId}"/><br/>
-
-    <input type="text" id="tyhName" th:field="*{tyhName}"/><br/>
-    <span th:if="${#fields.hasErrors('tyhName')}"  th:errors="*{tyhName}"></span>
-
-    <input type="text" id="thyPrice" th:field="*{thyPrice}"/><br/>
-    <span th:if="${#fields.hasErrors('thyPrice')}"  th:errors="*{thyPrice}"></span>
+     <p>ID</p>
+    <input  type="text" id="productId" disabled="disabled" th:field="*{productId}"/><br/>
+    <p>NAME</p>
+    <input type="text" id="productName" th:field="*{productName}"/><br/>
+    <span th:if="${#fields.hasErrors('productName')}"  th:errors="*{productName}"></span>
+    <p>TRADE</p>
+    <input type="text" id="productTrade" th:field="*{productTrade}"/><br/>
+    <span th:if="${#fields.hasErrors('productTrade')}"  th:errors="*{productTrade}"></span>
+    <p>PRICE</p>
+    <input type="text" id="productPrice" th:field="*{productPrice}"/><br/>
+    <span th:if="${#fields.hasErrors('productPrice')}"  th:errors="*{productTrade}"></span>
 
     <input type="submit" /><br/>
 </form>

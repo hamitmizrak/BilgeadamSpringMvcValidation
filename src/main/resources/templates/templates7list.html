@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script th:src="@{/js/index2.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/style2.css}">
+    <link>
+</head>
+<body>
+
+<table>
+    <tr th:each="thymeleaf_key_list : ${thymeleaf_key_list}">
+        <td th:text="${thymeleaf_key_list.productId}"></td>
+        <td th:text="${thymeleaf_key_list.productName}"></td>
+        <td th:text="${thymeleaf_key_list.productTrade}"></td>
+        <td th:if="${thymeleaf_key_list.productPrice>2000}" th:text="Büyükler" ></td>
+        <td th:unless="${thymeleaf_key_list.productPrice>2000}" th:text="Küçükler" ></td>
+        <td><a   th:href="@{/thymeleaf/{id}(id=${thymeleaf_key_list.productId})}">Update</a> </td>
+        <td><a   th:href="@{/thymeleaf/{id}(id=${thymeleaf_key_list.productId})}">Delete</a> </td>
+    </tr>
+</table>
+
+<a th:href="@{/thymeleaf}">Ekle</a>
+
+</body>
+</html>
