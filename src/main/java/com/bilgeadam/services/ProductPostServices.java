@@ -3,6 +3,7 @@ package com.bilgeadam.services;
 import com.bilgeadam.dto.ProductDto;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,13 +20,24 @@ public class ProductPostServices {
     }
 
 
-    /////POST Dto
+    /////POST :eklemek
     // http://localhost:8090/post/object
     @PostMapping("/post/object")
     public ProductDto postProductObject(@RequestBody ProductDto productDto) {
-        log.info(productDto);
+        log.info("eklemek "+productDto);
         return productDto;
     }
+
+    ////PUT: guncellemek
+    // id=0  ==> eklemek
+    // id!=0 ==> güncellemek
+    // http://localhost:8090/put/object
+    @PutMapping("/put/object")
+    public ProductDto putProductObject(@RequestBody ProductDto productDto) {
+        log.info("güncellemek"+productDto);
+        return productDto;
+    }
+
 
 
 }

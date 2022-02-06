@@ -61,8 +61,6 @@ public class ProductPostController {
         HttpEntity<ProductDto> requestHttpEntity = new HttpEntity<ProductDto>(prod);
         ResponseEntity<ProductDto> responseEntity = restTemplate.exchange(URL, HttpMethod.POST, requestHttpEntity, ProductDto.class);
         ProductDto productDto2 = responseEntity.getBody();
-
-
         return "Tamamdır HttpEnttity gelen hatayı almak için:" + productDto2;
     }
 
