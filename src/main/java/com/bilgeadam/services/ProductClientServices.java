@@ -12,27 +12,27 @@ import java.util.List;
 @RestController
 public class ProductClientServices {
 
-    // localhost:8090/rest/manueljson
+    // http://localhost:8090/rest/manueljson
     @GetMapping("/rest/manueljson")
     public String getManuelJson() {
         return "{ \"adı\": \"Hamit Mızrak\"}";
     }
 
-    // localhost:8090/rest/dynamicjson
+    // http://localhost:8090/rest/dynamicjson
     @GetMapping("/rest/dynamicjson")
     public ProductDto getDynamicsJson() {
         ProductDto productDto = ProductDto.builder().productId(0L).productName("Bilgisayar").productTrade("marka").build();
         return productDto;
     }
 
-    // localhost:8090/rest/produces
+    // http://localhost:8090/rest/produces
     @GetMapping(value = "/rest/produces", produces = MediaType.APPLICATION_JSON_VALUE)
     public ProductDto getProduces() {
         ProductDto productDto = ProductDto.builder().productId(0L).productName("Bilgisayar2").productTrade("marka2").build();
         return productDto;
     }
 
-    // localhost:8090/rest/pathvariable/urunadi
+    // http://localhost:8090/rest/pathvariable/urunadi
     @GetMapping(value = "/rest/pathvariable/{productname}")
     public ProductDto getPathParam(@PathVariable("productname") String product_name) {
         ProductDto productDto = ProductDto.builder().productId(0L).productName(product_name).productTrade("marka3").build();
@@ -40,7 +40,7 @@ public class ProductClientServices {
     }
 
 
-    // localhost:8090/rest/pathvariablelist/urunadi
+    // http://localhost:8090/rest/pathvariablelist/urunadi
     @GetMapping(value = "/rest/pathvariablelist/{productname}")
     public List<ProductDto>  getPathParamList(@PathVariable("productname") String product_name) {
         List<ProductDto> productDtoList=new ArrayList<>();
@@ -49,5 +49,9 @@ public class ProductClientServices {
         productDtoList.add(ProductDto.builder().productId(0L).productName(product_name).productTrade("marka444").build());
         return productDtoList;
     }
+
+
+
+
 
 }

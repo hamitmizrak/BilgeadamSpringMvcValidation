@@ -93,6 +93,7 @@ public class ProductClientController {
     }
 
 
+    //güncellemek
     // http://localhost:8090/put?product_name=urunadi55&product_trade=msi
     @GetMapping("/put")
     @ResponseBody
@@ -106,6 +107,18 @@ public class ProductClientController {
         ResponseEntity<ProductDto> responseEntity= restTemplate.exchange(URL, HttpMethod.PUT, new HttpEntity<ProductDto>(productDto1) ,ProductDto.class);
         ProductDto productDto2=responseEntity.getBody();
         return productDto2+"";
+    }
+
+
+    //silmek
+    // http://localhost:8090/delete/1
+    @GetMapping("/delete/{id}")
+    @ResponseBody
+    public String  getProductPutl(@PathVariable(name = "id")  Long id) {
+        String URL = "http://localhost:8090/delete/"+id;
+        RestTemplate restTemplate=new RestTemplate();
+        restTemplate.exchange(URL, HttpMethod.DELETE, HttpEntity.EMPTY ,Void.class);
+        return "Service Silindi .";
     }
 
 }
