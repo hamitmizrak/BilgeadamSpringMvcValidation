@@ -11,7 +11,6 @@ import org.springframework.web.client.RestTemplate;
 @Controller
 public class ResponseCookieController {
 
-//
     // http://localhost:8090/controller/response/cookie/header
     @GetMapping("/controller/response/cookie/header")
     @ResponseBody
