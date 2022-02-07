@@ -21,11 +21,11 @@
     <dependencies>
         <!-- ctrl+shift+o: Maven clean and build -->
 
-        <!--xml -->
-        <dependency>
+        <!-- defaulttaki json , xml yapmak -->
+       <!-- <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-xml</artifactId>
-        </dependency>
+        </dependency>-->
 
         <!--  h2database-->
         <dependency>
