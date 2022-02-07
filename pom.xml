@@ -21,7 +21,13 @@
     <dependencies>
         <!-- ctrl+shift+o: Maven clean and build -->
 
-<!--  h2database-->
+        <!--xml -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+        </dependency>
+
+        <!--  h2database-->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>

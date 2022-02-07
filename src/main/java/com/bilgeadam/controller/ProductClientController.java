@@ -121,4 +121,23 @@ public class ProductClientController {
         return "Service Silindi .";
     }
 
+
+    //////////////////////////
+    //MEDIA TYPE XML
+    //ResponseEntity ==> List
+    // http://localhost:8090/client/xml
+    @GetMapping("/client/xml")
+    @ResponseBody
+    public  List<ProductDto> getXmlProductList() {
+        String URL = "http://localhost:8090/rest/xml";
+        RestTemplate restTemplate=new RestTemplate();
+        ResponseEntity<List<ProductDto>> responseEntity= restTemplate.exchange(URL, HttpMethod.GET, HttpEntity.EMPTY, new ParameterizedTypeReference<List<ProductDto>>() {
+        });
+        List<ProductDto> productDtoList=responseEntity.getBody();
+        for(ProductDto temp: productDtoList){
+            System.out.println(temp);
+        }
+        return productDtoList;   // ""+productDtoList.size();
+    }
+
 }

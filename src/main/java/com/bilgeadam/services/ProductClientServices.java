@@ -42,16 +42,25 @@ public class ProductClientServices {
 
     // http://localhost:8090/rest/pathvariablelist/urunadi
     @GetMapping(value = "/rest/pathvariablelist/{productname}")
-    public List<ProductDto>  getPathParamList(@PathVariable("productname") String product_name) {
-        List<ProductDto> productDtoList=new ArrayList<>();
+    public List<ProductDto> getPathParamList(@PathVariable("productname") String product_name) {
+        List<ProductDto> productDtoList = new ArrayList<>();
         productDtoList.add(ProductDto.builder().productId(0L).productName(product_name).productTrade("marka4").build());
         productDtoList.add(ProductDto.builder().productId(0L).productName(product_name).productTrade("marka44").build());
         productDtoList.add(ProductDto.builder().productId(0L).productName(product_name).productTrade("marka444").build());
         return productDtoList;
     }
 
-
-
+    //////////////////////////
+    //MEDIA TYPE XML
+    // http://localhost:8090/rest/xml
+    @GetMapping(value = "/rest/xml", produces = MediaType.APPLICATION_XML_VALUE)
+    public List<ProductDto> getXmlList() {
+        List<ProductDto> productDtoList = new ArrayList<>();
+        productDtoList.add(ProductDto.builder().productId(0L).productName("product_name 1").productTrade("marka 1").build());
+        productDtoList.add(ProductDto.builder().productId(0L).productName("product_name 2").productTrade("marka 2").build());
+        productDtoList.add(ProductDto.builder().productId(0L).productName("product_name 3").productTrade("marka 3").build());
+        return productDtoList;
+    }
 
 
 }
