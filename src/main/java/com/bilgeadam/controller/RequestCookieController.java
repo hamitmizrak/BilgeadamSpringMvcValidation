@@ -1,6 +1,4 @@
 package com.bilgeadam.controller;
-
-
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -12,8 +10,6 @@ import org.springframework.web.client.RestTemplate;
 
 @Controller
 public class RequestCookieController {
-
-
 
     // Amac buradan Cookie olustur @RestController gitsin ve gelirken @Controllerdan göstersin
     // http://localhost:8090/controller/cookie/header

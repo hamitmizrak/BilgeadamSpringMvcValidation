@@ -3,13 +3,10 @@ package com.bilgeadam.services;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class RequestCookieServices {
-
-
 
     //requestHeader: ben header içine bir data gönderiyorum
     // http://localhost:8090/rest/cookie
