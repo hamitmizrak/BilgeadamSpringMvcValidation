@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ResponseCookieServices {
 
+
     // http://localhost:8090/rest/response/cookie
     @GetMapping("/rest/response/cookie")
     public ResponseEntity<?> getCookie() {
